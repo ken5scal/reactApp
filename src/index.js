@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import SearchBar from './components/search_bar';
+
 const API_KEY = 'AIzaSyDzHKm8wBzdCBq7RDrvjwFGB0Lvwo0e_iU'
 
 // Create a new component. this should produce some html
@@ -9,7 +11,11 @@ const API_KEY = 'AIzaSyDzHKm8wBzdCBq7RDrvjwFGB0Lvwo0e_iU'
 const App = () => {
     // Returning JSx. JSx is tranpiled into vanilla JavaScript.
     // JSx produces actual html put into DOM when rendering.
-    return <div>Hi!</div>; 
+    return (
+        <div>
+            <SearchBar />    
+        </div>
+    ); 
 }
 
 // Take this componet's generated HTML and put it on the page (in the DOM)
