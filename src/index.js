@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+const API_KEY = 'AIzaSyDzHKm8wBzdCBq7RDrvjwFGB0Lvwo0e_iU'
+
 // Create a new component. this should produce some html
 // Class. Not an Instance
 // const App = function() {
