@@ -1,26 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import YTSearch from 'youtube-api-search';
-
 import SearchBar from './components/search_bar';
-
 const API_KEY = 'AIzaSyDzHKm8wBzdCBq7RDrvjwFGB0Lvwo0e_iU'
-
-YTSearch({key: API_KEY, term: 'surfboards'}, function(data) {
-    console.log(data);
-});
 
 // Create a new component. this should produce some html
 // Class. Not an Instance
 // const App = function() {
-const App = () => {
+//const App = () => {
+class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { videos: [] };
+        //YTSearch({key: API_KEY, term: 'surfboards'}, function(data) {
+        YTSearch({key: API_KEY, term: 'surfboards'}, (videos) =>  {
+            //this.setState({ videos: videos });
+            this.setState({ videos }); // If key and value are the same name, you can abbreviate it
+        });
+    }
+    
     // Returning JSx. JSx is tranpiled into vanilla JavaScript.
     // JSx produces actual html put into DOM when rendering.
-    return (
-        <div>
-            <SearchBar />    
-        </div>
-    ); 
+    render () {
+        return (
+            <div>
+                <SearchBar />    
+            </div>
+        ); 
+    }
 }
 
 // Take this componet's generated HTML and put it on the page (in the DOM)
