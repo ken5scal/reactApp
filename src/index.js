@@ -14,7 +14,7 @@ class App extends Component {
         super(props);
         this.state = { videos: [] };
         //YTSearch({key: API_KEY, term: 'surfboards'}, function(data) {
-        YTSearch({key: API_KEY, term: 'surfboards'}, (videos) =>  {
+        YTSearch({key: API_KEY, term: 'darksouls'}, (videos) =>  {
             //this.setState({ videos: videos });
             this.setState({ videos }); // If key and value are the same name, you can abbreviate it
         });
