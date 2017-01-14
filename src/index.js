@@ -5,6 +5,7 @@ import SearchBar from './components/search_bar';
 import VideoList from './components/video_list';
 import VideoDetail from './components/video_detail'
 const API_KEY = 'AIzaSyDzHKm8wBzdCBq7RDrvjwFGB0Lvwo0e_iU';
+import _ from 'lodash';
 
 // Create a new component. this should produce some html
 // Class. Not an Instance
@@ -36,14 +37,14 @@ class App extends Component {
     // Returning JSx. JSx is tranpiled into vanilla JavaScript.
     // JSx produces actual html put into DOM when rendering.
     render () {
-        return (
-            <div>
-                <SearchBar onSearchTermChange={term => this.videoSearch(term)}/>
+      const videoSearch = _.debounce((term) => {this.videoSearch(term)}, 300);
+      return (
+
+          <div>
+                <SearchBar onSearchTermChange={videoSearch}/>
                 <VideoDetail video={this.state.selectedVideo} />
                 <VideoList
                   videos={this.state.videos}
-                  // Pass a function from App to VideoList to finally VideoListItem
-                  // When videolist pass selectedvideo, then state will be updated
                   onVideoSelect={selectedVideo => this.setState({selectedVideo})}
                 />
             </div>
