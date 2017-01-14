@@ -13,11 +13,19 @@ const API_KEY = 'AIzaSyDzHKm8wBzdCBq7RDrvjwFGB0Lvwo0e_iU';
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = { videos: [] };
+
+        this.state = {
+          videos: [],
+          selectedVideo: null
+         };
+
         //YTSearch({key: API_KEY, term: 'surfboards'}, function(data) {
         YTSearch({key: API_KEY, term: 'darksouls'}, (videos) => {
-            //this.setState({ videos: videos });
-            this.setState({ videos }); // If key and value are the same name, you can abbreviate it
+          //this.setState({ videos: videos });
+          this.setState({
+            videos: videos,
+            selectedVideo: videos[0]
+          }); // If key and value are the same name, you can abbreviate it
         });
     }
 
@@ -27,8 +35,13 @@ class App extends Component {
         return (
             <div>
                 <SearchBar />
-                <VideoDetail video={this.state.videos[0]} />
-                <VideoList videos={this.state.videos} />
+                <VideoDetail video={this.state.selectedVideo} />
+                <VideoList
+                  videos={this.state.videos}
+                  // Pass a function from App to VideoList to finally VideoListItem
+                  // When videolist pass selectedvideo, then state will be updated
+                  onVideoSelect={selectedVideo => this.setState({selectedVideo})}
+                />
             </div>
         );
     }
