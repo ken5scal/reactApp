@@ -12,26 +12,22 @@ class SearchBar extends Component { // Class Base Component
         // State is plain JS component that exists on Class Base Component
         this.state = { term: '' }; // Only inside constructor, state is manipulated in this way. NO OTHER PART.
     }
-    
+
     // When State of componet changes, then it renders asap
     render() {
-       //return <input onChange={this.onInputChange} />;  
-       //return <input onChange={event => console.log(event.target.value)} />;  
+       //return <input onChange={this.onInputChange} />;
+       //return <input onChange={event => console.log(event.target.value)} />;
         return (
-            <div>
+            <div className="search-bar">
                 <input
-                    // When value is provided, component is changed to controlled form.
-                    // Will not ire-render until state is updated.
                     value={this.state.term}
                     onChange={event => this.setState({ term: event.target.value })} />
-                Value of the input: {this.state.term }
             </div>
         );
     }
-
-    onInputChange(event) {
-        console.log(event.target.value);
-    }
+    // onInputChange(event) {
+    //     console.log(event.target.value);
+    // }
 }
 
 // Exporting SearchBar Component
