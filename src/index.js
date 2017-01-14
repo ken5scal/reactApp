@@ -19,14 +19,18 @@ class App extends Component {
           selectedVideo: null
          };
 
-        //YTSearch({key: API_KEY, term: 'surfboards'}, function(data) {
-        YTSearch({key: API_KEY, term: 'darksouls'}, (videos) => {
-          //this.setState({ videos: videos });
-          this.setState({
-            videos: videos,
-            selectedVideo: videos[0]
-          }); // If key and value are the same name, you can abbreviate it
-        });
+         this.videoSearch('darksouls')
+    }
+
+    videoSearch(term) {
+      //YTSearch({key: API_KEY, term: 'surfboards'}, function(data) {
+      YTSearch({key: API_KEY, term: term}, (videos) => {
+        //this.setState({ videos: videos });
+        this.setState({
+          videos: videos,
+          selectedVideo: videos[0]
+        }); // If key and value are the same name, you can abbreviate it
+      });
     }
 
     // Returning JSx. JSx is tranpiled into vanilla JavaScript.
@@ -34,7 +38,7 @@ class App extends Component {
     render () {
         return (
             <div>
-                <SearchBar />
+                <SearchBar onSearchTermChange={term => this.videoSearch(term)}/>
                 <VideoDetail video={this.state.selectedVideo} />
                 <VideoList
                   videos={this.state.videos}
