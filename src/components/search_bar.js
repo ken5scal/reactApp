@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-//const SearchBar = () => { // Functional Component
+//const SearchBar = () => { // Functional Base Component. Faster
 //    return <input />  // React.createComment(
 //};
 
