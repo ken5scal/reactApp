@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import YTSearch from 'youtube-api-search';
 import SearchBar from './components/search_bar';
-import VideoList from './components/video_list'
-const API_KEY = 'AIzaSyDzHKm8wBzdCBq7RDrvjwFGB0Lvwo0e_iU'
+import VideoList from './components/video_list';
+const API_KEY = 'AIzaSyDzHKm8wBzdCBq7RDrvjwFGB0Lvwo0e_iU';
 
 // Create a new component. this should produce some html
 // Class. Not an Instance
@@ -14,7 +14,7 @@ class App extends Component {
         super(props);
         this.state = { videos: [] };
         //YTSearch({key: API_KEY, term: 'surfboards'}, function(data) {
-        YTSearch({key: API_KEY, term: 'darksouls'}, (videos) =>  {
+        YTSearch({key: API_KEY, term: 'darksouls'}, (videos) => {
             //this.setState({ videos: videos });
             this.setState({ videos }); // If key and value are the same name, you can abbreviate it
         });
