@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import YTSearch from 'youtube-api-search';
 import SearchBar from './components/search_bar';
+import VideoList from './components/video_list'
 const API_KEY = 'AIzaSyDzHKm8wBzdCBq7RDrvjwFGB0Lvwo0e_iU'
 
 // Create a new component. this should produce some html
@@ -18,15 +19,16 @@ class App extends Component {
             this.setState({ videos }); // If key and value are the same name, you can abbreviate it
         });
     }
-    
+
     // Returning JSx. JSx is tranpiled into vanilla JavaScript.
     // JSx produces actual html put into DOM when rendering.
     render () {
         return (
             <div>
-                <SearchBar />    
+                <SearchBar />
+                <VideoList videos={this.state.videos} />
             </div>
-        ); 
+        );
     }
 }
 
