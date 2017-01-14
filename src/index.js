@@ -11,6 +11,7 @@ import _ from 'lodash';
 // Class. Not an Instance
 // const App = function() {
 //const App = () => {
+// Use Calss base component whenever you want to save state.
 class App extends Component {
     constructor(props) {
         super(props);
